@@ -20,24 +20,6 @@ export class RolesComponent implements OnInit {
   this.getDataRoles()
   }
 
-/*
-  getDataRoles(){
-    this.service.getRoles().subscribe(
-      (data) => {
-        this.DataRoles=data['rols']
-        this.DataRolesListo = true
-      }
-    )
-  }
-
-  getDataPermisos(){
-    this.service.getPermisos().subscribe(
-      (data) => {
-        this.DataPermisos=data
-      }
-    )
-  }
-*/
 
 
 getDataRoles(){
@@ -67,6 +49,31 @@ PostRoles(){
 
 }
 DeleteRoles(id){
+  console.log(id) //mostrando lo que enviare
+  Swal.fire({
+    icon: 'question',
+    title: '¿Estas seguro de eliminar?',
+    showConfirmButton: true,
+    showCancelButton: true,
+  }).then(resp => {
+    if(resp.value){
+      this.service.deleteRoles(id).subscribe(
+        (data) => {
+          console.log("eliminado")
+          this.getDataRoles()
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+    }
+
+  })
+  
+
+}
+
+EditarRoles(id){
   console.log(id) //mostrando lo que enviare
   Swal.fire({
     icon: 'question',

@@ -1,0 +1,18 @@
+#micanvas1 {
+    display: inline; 
+    position: absolute;
+    width:500px; 
+    height:300px;
+    top:100px;
+    left:800px;    
+}
+
+#micanvas2 {
+    display: inline; 
+    position: absolute;
+    width:500px; 
+    height:300px;
+    top:450px;
+    left:800px;    
+}
+

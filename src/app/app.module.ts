@@ -21,7 +21,11 @@ import { FichaComponent } from './usuarios/ficha/ficha.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PermisosComponent } from './permisos/permisos.component';
-import { DiscapacidadesComponent } from './discapacidades/discapacidades.component'; // <-- import the module
+import { DiscapacidadesComponent } from './discapacidades/discapacidades.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { DiscapacidadesComponent } from './discapacidades/discapacidades.compone
     FichaComponent,
     FilterPipe,
     PermisosComponent,
-    DiscapacidadesComponent
+    DiscapacidadesComponent,
+    PieChartComponent,
+    BarChartComponent
+
   ],
   imports: [
     BrowserModule,
@@ -48,6 +55,7 @@ import { DiscapacidadesComponent } from './discapacidades/discapacidades.compone
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    ChartsModule
     
   ],
   providers: [],

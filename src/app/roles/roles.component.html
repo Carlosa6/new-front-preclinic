@@ -21,13 +21,6 @@
                                         <input type="text" class="form-control" placeholder="Ingrese una descripcion" [(ngModel)]="descripcion" name="descripcion">
                                         <button class="btn btn-primary mt-4 float-right" type="submit">Agregar</button>
                                     </form>
-                                    <!-- 
-                                    <div class="">
-                                        <input type="checkbox">Gaaddasdas
-                                        <input type="checkbox">Gaaddasdas
-                                        <input type="checkbox">Gaaddasdas
-                                    </div>
-                                    -->
                                     <div class="col-sm-12">
                       
                                 </div>
@@ -54,6 +47,7 @@
                                             <th>{{dato.name}}</th>
                                             <th>{{dato.description}}</th>
                                             <th><button type="submit" class="btn btn-danger" (click)="DeleteRoles(dato._id)">Eliminar</button></th>
+
                                         </tr>
                                     </tbody>
                                 </table>

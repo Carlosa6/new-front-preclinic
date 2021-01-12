@@ -1,30 +1,37 @@
 <div class="page-wrapper" *ngIf="info">
     <div class="content">
-        <input type="text" class="form-control" placeholder="Busqueda por Nombres, DNI y Codigo" name="filter" [(ngModel)]="filteruser">
+        <input type="text" class="form-control" placeholder="Busqueda por Nombre, Apellidos, DNI y codigo" name="filter" [(ngModel)]="filteruser">
     </div>
     <div class="content">
         <div class="row">
             <div class="col-sm-4 col-3">
-                <h4 class="page-title">Usuarios</h4>
+                <h2 class="page-title">Usuarios</h2>
             </div>
             <div class="col-sm-8 col-9 text-right m-b-20">
                 <a [routerLink]="['../crear-usuario']" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Añadir Usuario</a>
+                <!--<label>Agregar nuevo usuario</label>
+                <select class="custom-select" >
+                    <option  value="DOCENTE">Docente</option>
+                    <option  value="TRABAJADOR">Trabajador</option>
+                    <option  value="ALUMNO">Alumno</option>
+
+                </select>-->
             </div>
         </div>
         <div class="row doctor-grid">
             <!-- datos de prueba-->
 
-            <div class="col-md-4 col-sm-4  col-lg-3" *ngFor=" let user of datausers | paginate: { itemsPerPage: 12, currentPage: p } | filter:filteruser">
+            <div class="col-md-4 col-sm-4  col-lg-3" *ngFor=" let user of datausers  | filter:filteruser | paginate: { itemsPerPage: 12, currentPage: p } ">
                 <div class="profile-widget">
                     <div class="doctor-img">
                         <a class="avatar" [routerLink]="['../perfil-usuario',user.dni]"><img alt="" src="assets/img/doctor-thumb-03.jpg"></a>
                     </div>
                     <div class="dropdown profile-action">
-                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="edit-doctor.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                        <!-- <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                         <div class="dropdown-menu dropdown-menu-right">
+                             <a class="dropdown-item" href="edit-doctor.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_doctor"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                        </div>
+                        </div>-->
                     </div>
                     <h3 class="doctor-name text-ellipsis"><a [routerLink]="['../perfil-usuario',user.dni]">{{user.nombres}}</a></h3>
                     <h4 class="doctor-name text-ellipsis"><a [routerLink]="['../perfil-usuario',user.dni]">{{user.apellidos}}</a></h4>
@@ -35,19 +42,15 @@
                     </div>
                 </div>
             </div>
-            
+
 
 
 
         </div>
         <div class="row">
-            <pagination-controls 
-            (pageChange)="p = $event"
-            previousLabel="Anterior"
-            nextLabel="Siguiente"
-            >
-            
-        </pagination-controls>
+            <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente">
+
+            </pagination-controls>
         </div>
     </div>
 

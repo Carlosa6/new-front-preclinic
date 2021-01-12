@@ -2,11 +2,12 @@
     <div class="content">
         <div class="row">
             <div class="col-sm-7 col-6">
-                <h4 class="page-title">Perfil</h4>
+                <h4 class="page-title">Perfil: {{informacion.rol[0].name}}</h4>
+
             </div>
 
             <div class="col-sm-5 col-6 text-right m-b-30">
-                <a href="edit-profile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus" aria-disabled="false"></i> Edit Profile</a>
+                <!--<a href="edit-profile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus" aria-disabled="false"></i> Edit Profile</a>-->
             </div>
         </div>
         <div class="card-box profile-header">
@@ -15,7 +16,7 @@
                     <div class="profile-view">
                         <div class="profile-img-wrap">
                             <div class="profile-img">
-                                <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt=""></a>
+                                <img class="avatar" src="assets/img/doctor-03.jpg" alt="">
                             </div>
                         </div>
                         <div class="profile-basic">
@@ -49,6 +50,7 @@
                                             <span class="title">Sexo:</span>
                                             <span class="text">{{informacion.sexo}}</span>
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>

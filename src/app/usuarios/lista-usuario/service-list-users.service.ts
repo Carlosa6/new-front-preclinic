@@ -11,8 +11,8 @@ export class ServiceListUsersService {
   httpOptions : any;
   token
 
-  constructor(private service: HttpClient,private Tooken :LoginService) {
-    this.token = this.Tooken.getToken()
+  constructor(private service: HttpClient,private login :LoginService) {
+    this.token = this.login.getToken()
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',

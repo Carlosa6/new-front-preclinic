@@ -3,6 +3,7 @@ import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 
 import { CrearUsuarioService } from './service/crear-usuario.service';
+import { LoginService } from '../../login/service/login.service';
 
 import Swal from'sweetalert2';
 
@@ -17,16 +18,25 @@ export class CrearUsuarioComponent implements OnInit {
   titulo = "Crear Usuario";
 
   forma: FormGroup;
+  roles: [];
+  existeRol=false
 
 
-  constructor(private fb: FormBuilder, private serviceUser: CrearUsuarioService, private router: Router) {
+  constructor(private fb: FormBuilder,private service:LoginService, private serviceUser: CrearUsuarioService, private router: Router) {
     this.crearForm();
    }
 
   ngOnInit(): void {
-   
+   this.getRol()
   }
 
+  getRol(){
+    this.service.tipoUsuario()
+      .subscribe( data => {
+        this.roles= data['rols']
+      });
+      this.existeRol = true
+  }
   get codigoNoValido(){
       return this.forma.get('codigo').invalid && this.forma.get('codigo').touched;
   }
@@ -56,20 +66,22 @@ get telefonoNoValido(){
   return this.forma.get('telefono').invalid && this.forma.get('telefono').touched;
 }
 
+
   
 
   crearForm(){
     this.forma = this.fb.group({
       codigo: ['', [Validators.required, Validators.minLength(8)]],
-      nombres : ['', Validators.required],
-      apellidos: ['', Validators.required],
+      nombres : ['', [Validators.required, Validators.pattern("[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}")]],
+      apellidos: ['', [Validators.required,Validators.pattern("[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,64}")]],
       dni: ['', [Validators.required, Validators.minLength(8)]],
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      email:['',[Validators.required, Validators.pattern('[0-9a-zA-Z]([-.w]*[0-9a-zA-Z_+])*@unmsm.edu.pe')]],
       password: ['', Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.minLength(7)]],
       sexo: ['' ],
-
+      rol: [''],
+      
 
     }
 
@@ -110,6 +122,9 @@ get telefonoNoValido(){
         console.log(error)
       }
     )
+  }
+  redirigir(){
+    this.router.navigate(["../usuarios"]);
   }
 
 

@@ -137,24 +137,18 @@
         <div class="row" >
           <div class="col-md-6">   
             <h3 class="mb-4">Publicos </h3>
-              <input type="checkbox" checked disabled >UNMSM
-              <input type="checkbox"  (click)="checkboxMinsa()" id="minsa" disabled>MINSA
-              <input type="checkbox"  id="essalud" disabled>ESSALUD
+              <input type="checkbox"  [checked]="Seguros.UNMSM"  disabled >UNMSM
+              <input type="checkbox" [checked]="Seguros.MINSA " disabled>MINSA
+              <input type="checkbox"  [checked]="Seguros.ESSALUD" disabled>ESSALUD
           </div>
           <div class="col-md-6">   
               <h3>Privados </h3>
-              <input class="form-control"
-              placeholder="EPS" disabled
+              <input class="form-control" [value]="Seguros.EPS" 
+               disabled
 >
           </div>
         </div>
 
-        <div class="form row mt-4">
-          <div class="input-group col" style="margin-bottom: 100px !important;">
-            <button type="submit" class="btn btn-outline-primary btn-block">
-              Guardar
-            </button>
-          </div>
-        </div>       
+           
     </div>
 </div>

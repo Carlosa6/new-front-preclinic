@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceListUsersService} from './../lista-usuario/service-list-users.service'
 import { PerfilUsuarioService} from './service/perfil-usuario.service'
 import { LoginService} from './../../login/service/login.service'
+
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-perfil-usuario',
@@ -14,13 +15,14 @@ export class PerfilUsuarioComponent implements OnInit {
   existeInformacion = false
   codigo : String
   fichas : any
+  rol
   existeFichaMedicas = false
   isAdmin =false
 
   constructor( private service : ServiceListUsersService, private route: ActivatedRoute,private perfil : PerfilUsuarioService, private login : LoginService ) { }
 
   ngOnInit(): void {
-    if(this.login.getRol()=="admin"){
+    if(this.login.getRol()=="ADMIN"){
       this.isAdmin =true
     }
       

@@ -69,8 +69,8 @@ export class FichaMedicaComponent implements OnInit {
       diagnostico: this.fb.array([]),
       medicamentoHabitual: this.fb.array([]),
       medicamentosAlergicos: this.fb.array([]),
-      sangre : '',
-      seguros: this.fb.group({
+      tipoSangre : '',
+      seguroMedico: this.fb.group({
         UNMSM : false,
         MINSA : false,
         ESSALUD: false,
@@ -88,14 +88,14 @@ export class FichaMedicaComponent implements OnInit {
 
   /*  SEGURO  */
   checkboxMinsa() {
-      if(!this.forma.get('seguros').value['MINSA'] == true){
-        this.forma.get('seguros').patchValue({'ESSALUD' : false})
+      if(!this.forma.get('seguroMedico').value['MINSA'] == true){
+        this.forma.get('seguroMedico').patchValue({'ESSALUD' : false})
       }
     
   }
   checkboxEssalud() {
-    if(!this.forma.get('seguros').value['ESSALUD'] == true){
-      this.forma.get('seguros').patchValue({'MINSA' : false})
+    if(!this.forma.get('seguroMedico').value['ESSALUD'] == true){
+      this.forma.get('seguroMedico').patchValue({'MINSA' : false})
     }
   
 }

@@ -39,8 +39,9 @@ export class LoginComponent implements OnInit {
           title: 'Usuario válido',
           showConfirmButton: true,
         }).then( () => {
+          
           if( this.serviceLogin.getRol()=="ADMIN"){
-            this.router.navigate(['../inicio']);;
+            this.router.navigate(['../inicio'])
           }
           if( this.serviceLogin.getRol()=="USUARIO"){
             let dni = this.serviceLogin.getUserDni()

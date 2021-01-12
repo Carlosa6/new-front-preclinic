@@ -1,7 +1,7 @@
 <div class="page-wrapper" *ngIf="existeSangre && existeFormulario">
     <div class="container">
-        <a class="btn btn-primary float-right mt-4"  style="color: white;" (click) ="Redirigir()">Atras</a>
-      </div>
+        <a class="btn btn-primary float-right mt-4" style="color: white;" (click)="Redirigir()">Atras</a>
+    </div>
     <div class="container mt-5">
         <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
             <div class="row mb-4">
@@ -18,7 +18,7 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Tipo de Sangre</label>
                     </div>
-                    <select class="custom-select" formControlName="sangre" *ngIf="sangres.length>0">
+                    <select class="custom-select" formControlName="tipoSangre" *ngIf="sangres.length>0">
               <option *ngFor ="let tipo of sangres" [value]=tipo.tipo>{{tipo.representation}}</option>
             </select>
                 </div>
@@ -142,7 +142,7 @@
             </div>
 
             <h2 class="mb-3">Seguros Médicos</h2>
-            <div class="row" formGroupName="seguros">
+            <div class="row" formGroupName="seguroMedico">
                 <div class="col-md-6">
                     <h3 class="mb-4">Publicos </h3>
                     <input type="checkbox" formControlName="UNMSM">UNMSM
@@ -164,7 +164,7 @@
             </div>
 
         </form>
-
+        
         <hr>
         <pre>
         Estado del formulario: {{ forma.valid }}

@@ -1,144 +1,105 @@
-<div class="page-wrapper" >
+<div class="page-wrapper">
     <div class="content">
-        <!--  ALUMNOS -->  
-        <h2>Alumnos</h2> 
         <div class="row">
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget">
-                    <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
-                    <div class="dash-widget-info text-right">
-                        <h3>98</h3>
-                        <span class="widget-title1">Alumnos <i class="fa fa-check" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget">
-                    <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
-                    <div class="dash-widget-info text-right">
-                        <h3>90</h3>
-                        <span class="widget-title2">Registrados <i class="fa fa-check" aria-hidden="true"></i></span>
-                    </div>
-                </div>
+            <div class="">
+                <h3 class="text-center">Inicio</h3>
             </div>
 
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget">
-                    <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                    <div class="dash-widget-info text-right">
-                        <h3>8</h3>
-                        <span class="widget-title4">Pendientes <i class="fa fa-check" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </div>
         </div>
-        <!-- FIN  ALUMNOS -->  
-
-         <!--  DOCENTES -->   
-        <h2>Docentes</h2> 
         <div class="row">
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget">
-                    <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
-                    <div class="dash-widget-info text-right">
-                        <h3>40</h3>
-                        <span class="widget-title1">Docentes <i class="fa fa-check" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget">
-                    <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
-                    <div class="dash-widget-info text-right">
-                        <h3>30</h3>
-                        <span class="widget-title2">Registrados <i class="fa fa-check" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                <div class="dash-widget">
-                    <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                    <div class="dash-widget-info text-right">
-                        <h3>10</h3>
-                        <span class="widget-title4">Pendientes <i class="fa fa-check" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <!-- FIN  DOCENTES -->      
-
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="chart-title">
-                            <h4>Total de pacientes</h4>
-                            <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-                        </div>	
-                        <canvas id="linegraph"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="chart-title">
-                            <h4>Tipo Seguro</h4>
-                            <div class="float-right">
-
+            <div class="col-md-12">
+                <div class="card-box">
+                    <h2 class="text-center">SISTEMA DE ADMINISTRACION MEDICA</h2>
+                    <div class="row">
+                        <div class="col-sm-6 m-b-20">
+                            <img src="assets/img/logo-dark.png" class="inv-logo" alt="">
+                            <ul class="list-unstyled mb-0">
+                                <li>PreClinic</li>
+                                <li>Av. Germán Amézaga 375</li>
+                                <li>Cercado de Lima, Lima </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 m-b-20">
+                            <div class="invoice-details">
+                                <h4 class="text">Facultad de Ingenieria de Sistemas e Informatica</h4>
+                                <ul class="list-unstyled">
+                                    <span>Diciembre, 2020</span>
+                                </ul>
                             </div>
-                        </div>	
-                        <canvas id="bargraph"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-8 col-xl-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title d-inline-block">Ultimos alumnos ingresados</h4> <a href="appointments.html" class="btn btn-primary float-right">View all</a>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead class="">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Code</th>
-                                        <th>Date</th>
-                                        <th class="text-right">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td style="min-width: 200px;">
-                                            <a class="avatar" href="profile.html">B</a>
-                                            <h2><a href="profile.html">Bernardo Galaviz</a></h2>
-                                        </td>                 
-                                        <td>
-                                            <h5 class="time-title p-0">17200070</h5>
-
-                                        </td>
-                                        <td>
-                                            <h5 class="time-title p-0">1/11/20</h5>
-                                        </td>
-                                        <td class="text-right">
-                                            <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-12 m-b-20">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h5 class="mb-0"><strong>UNIDAD DE BIENESTAR</strong></h5>
+                                </li>
+                                <li><span>Jefa del area</span></li>
+                                <li>Employee ID: NS-0001</li>
+                                <li>Teléfono: 619 - 7000 Anexo 3615</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <h4 class="m-b-10"><strong>INTEGRANTES</strong></h4>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Cancho Yupanqui Evison</strong> <span class="float-right">17200058</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Carrillo Delgado Aaron</strong> <span class="float-right">17200061</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Cayatopa Yauri Angel</strong> <span class="float-right">17200010</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Obregon Castro Jairo</strong> <span class="float-right">17200070</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Alegre Saenz Diego</strong> <span class="float-right"><strong>09200002 </strong></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Quiroz Vento Oskar</strong> <span class="float-right"><strong> 11200099</strong></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <h4 class="m-b-10"><strong>ROLES</strong></h4>
+                                <table class="table table-bordered text-center">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Scrum Master</strong> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Development Team</strong> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Product Owner</strong> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Development Team</strong> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Development Team</strong> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Development Team</strong> </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-   
         </div>
-
     </div>
-
 </div>

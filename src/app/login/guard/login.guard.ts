@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 import {LoginService} from './../service/login.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  retorno = false
-  constructor(private service: LoginService){}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
-      if(this.service.getRol()){
-        this.retorno=true
-      }
-    return this.retorno;
-  }
+  
+  constructor(private service: LoginService, private router: Router){}
+
+  canActivate(): boolean {
+
+    console.log('guard');
+     if(this.service.estaLogeado()){
+      console.log('asd');
+       return true
+     }
+     console.log('wweweasd');
+       this.router.navigate(['/login']);
+       console.log('32434');
+       return false
+     
+   
+ }
   
 }
