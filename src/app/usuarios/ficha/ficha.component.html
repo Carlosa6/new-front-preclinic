@@ -1,10 +1,10 @@
 
-<div class="page-wrapper" *ngIf="existeFicha" >
+<div class="page-wrapper" *ngIf="existeFicha " >
   <div class="container">
     <a class="btn btn-primary float-right mt-4"  style="color: white;" (click) ="Redirigir()">Atras</a>
+    <a class="btn btn-danger float-right mt-4 ml-4 mr-4"  style="color: white;" (click) ="Eliminar()">Eliminar</a>
   </div>
     <div class="container mt-5">
-
         <div class="row mb-4 ">
           <h1>Ficha Médica</h1>
         </div>
@@ -18,7 +18,7 @@
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01" >Tipo de Sangre</label>
             </div>
-            <input type="text" name="tipoSangre" id="" [value]=tipoSangre disabled>
+            <input type="text" name="tipoSangre" id="" [value]=tipoSangre  disabled>
           </div>
           <div class="input-group mb-3 col-md-6">
             <div class="input-group-prepend">
@@ -149,6 +149,9 @@
           </div>
         </div>
 
-           
+     
     </div>
+    
 </div>
+
+

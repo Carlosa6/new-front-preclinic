@@ -38,8 +38,8 @@ export class PieChartComponent  {
   public pieChartOptions2: ChartOptions = {
     responsive: true,
   };
-  public pieChartLabels2: Label[] = ['0','1','Más de 1'];
-  public pieChartData2: SingleDataSet = [40, 30, 12];
+  public pieChartLabels2: Label[] = ['','',''];
+  public pieChartData2: SingleDataSet = [0, 0, 0];
   public pieChartType2: ChartType = 'pie';
   public pieChartLegend2 = true;
   public pieChartPlugins2 = [];
@@ -54,23 +54,54 @@ export class PieChartComponent  {
     },
   ];
   
-  constructor(public json: Json2Service) {
+  constructor(public json: Json2Service, public json2: Json2Service) {
 
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
     
     //['A+','B+','O+','AB+','A-','B-','O-','AB-']
-
-    this.json.getJson('https://nameless-plains-49486.herokuapp.com/api/charts').subscribe((res: any) => {
     
-        console.log((JSON.parse(res[1].cantidadTiposSangrexAnio[0].est))[0].count)
-        
-        this.pieChartLabels[0] = 'A+'
-        this.pieChartLabels[1] = 'B+'
-        
-        this.pieChartData[0] = (JSON.parse(res[1].cantidadTiposSangrexAnio[0].est))[0].count
-        this.pieChartData[1] = (JSON.parse(res[1].cantidadTiposSangrexAnio[0].est))[1].count
+    this.json.getJson('https://nameless-plains-49486.herokuapp.com/api/charts/cir_seguro').subscribe((res: any) => {
+ 
+    this.pieChartLabels2[0] = '0'     
+    this.pieChartLabels2[1] = '1'  
+    this.pieChartLabels2[2] = 'Más de 1'  
+
+    this.pieChartData2[0] = res["0"]
+    this.pieChartData2[1] = res["1"]
+    this.pieChartData2[2] = res["Mas de 1"]
+    
+    console.log(res)
+    console.log(res["0"])
+    console.log(res["1"])
+    console.log(res["Mas de 1"])
     });  
+
+    this.json.getJson('https://nameless-plains-49486.herokuapp.com/api/charts/cir_sangre').subscribe((res2: any) => {
+      
+    console.log(res2)
+    console.log(res2["A+"])
+    
+    this.pieChartLabels[0]= 'A+'
+    this.pieChartLabels[1]= 'B+'
+    this.pieChartLabels[2]= 'O+'
+    this.pieChartLabels[3]= 'AB+'
+    this.pieChartLabels[4]= 'A-'
+    this.pieChartLabels[5]= 'B-'
+    this.pieChartLabels[6]= 'O-'
+    this.pieChartLabels[7]= 'AB-'
+
+    this.pieChartData[0] = res2["A+"]
+    this.pieChartData[1] = res2["B+"]
+    this.pieChartData[2] = res2["O+"]
+    this.pieChartData[3] = res2["AB+"]
+    this.pieChartData[4] = res2["A-"]
+    this.pieChartData[5] = res2["B-"]
+    this.pieChartData[6] = res2["O-"]
+    this.pieChartData[7] = res2["AB-"]
+
+
+    }); 
   }
 
   ngOnInit() {

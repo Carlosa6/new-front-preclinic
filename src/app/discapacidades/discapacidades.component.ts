@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService} from './../roles/service.service'
+import {  Router} from '@angular/router';
 import Swal from'sweetalert2';  
 @Component({
   selector: 'app-discapacidades',
@@ -12,7 +13,10 @@ export class DiscapacidadesComponent implements OnInit {
   DataDiscapacidades
   DataDiscapacidadesListo = false
   DataPermisos
-  constructor(private service : ServiceService ) { }
+
+  name
+  identificador
+  constructor(private service : ServiceService, private router: Router ) { }
 
   ngOnInit(): void {
     this.getDataDiscapacidades()
@@ -55,7 +59,6 @@ export class DiscapacidadesComponent implements OnInit {
       if(resp.value){
         this.service.deleteDiscapacidad(id).subscribe(
           (data) => {
-            console.log("eliminado")
             this.getDataDiscapacidades()
           },
           (error) => {
@@ -68,4 +71,30 @@ export class DiscapacidadesComponent implements OnInit {
     
 
   }
+
+  EditarDiscapacidades(id){
+    console.log(id) //mostrando lo que enviare
+       this.service.getxIdDiscapacidades(id).subscribe(
+          (data) => {
+            this.name = data['foundDiscapacidad'].name
+            this.identificador = data['foundDiscapacidad']._id
+          },
+          (error) => {
+            console.log(error)
+          }
+        )
+
+        
+      }
+      EditadoDiscapacidades(){
+       this.service.EditDiscapacidades(this.identificador,this.name).subscribe(
+          (data) => {
+            console.log(data)
+            window.location.reload();
+          },
+          (error) => {
+            console.log(error)
+          }
+        )
+      }
 }

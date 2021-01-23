@@ -2,6 +2,8 @@ import { Component, OnInit   } from '@angular/core';
 import { ServiceListUsersService} from './../lista-usuario/service-list-users.service'
 import { ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from './../../login/service/login.service'
+import { FormGroup, FormBuilder} from '@angular/forms';
+import Swal from'sweetalert2';  
 
 @Component({
   selector: 'app-ficha',
@@ -10,6 +12,7 @@ import {LoginService} from './../../login/service/login.service'
 })
 export class FichaComponent implements OnInit {
 
+  forma: FormGroup;
   diagnostico = []
   medicamentosAlergicos = []
   idtipoSangre 
@@ -18,7 +21,7 @@ export class FichaComponent implements OnInit {
   Seguros
   anio
   existeFicha = false
-
+  existeFormulario = false
 
 
   constructor(private service : ServiceListUsersService, private route: ActivatedRoute, private router: Router, private login:LoginService) { }
@@ -27,7 +30,6 @@ export class FichaComponent implements OnInit {
     this.loadData()
 
   }
-
 
 
   async loadData(){
@@ -51,9 +53,39 @@ export class FichaComponent implements OnInit {
         )
       
  }
+
+
+
   Redirigir(){
-    let ficha=this.route.snapshot.params['dni'];
+    let ficha=this.route.snapshot.params['id'];
+    
     this.router.navigate(['../perfil-usuario',ficha])
+  }
+
+  Eliminar(){
+    let usuario=this.route.snapshot.params['dni'];
+    let ficha=this.route.snapshot.params['id'];
+    Swal.fire({
+      icon: 'question',
+      title: '¿Estas seguro de eliminar?',
+      showConfirmButton: true,
+      showCancelButton: true,
+    }).then(resp => {
+      if(resp.value){
+        this.service.EliminarFicha(usuario,ficha).subscribe(
+          data => {
+            console.log("eliminado" + data)
+            this.router.navigate(['../perfil-usuario',usuario])
+          },
+          error => {
+            console.log(error)
+          }
+        )
+      }
+
+    })
+    
+    
   }
 
 

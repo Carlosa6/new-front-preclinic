@@ -93,6 +93,7 @@ get telefonoNoValido(){
 
 
   user(){
+    
    
     if(this.forma.invalid){
       Object.values(this.forma.controls).forEach(control =>{
@@ -118,7 +119,6 @@ get telefonoNoValido(){
         
       },
       (error) => {
-        console.log("errorrrrrrr")
         console.log(error)
       }
     )

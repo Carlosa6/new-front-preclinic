@@ -1,0 +1,43 @@
+<div class="page-wrapper">
+
+
+    <div class="container">
+        <div class="form-group  ">
+            <h2>Incidencia</h2>
+        </div>
+        <div class="card-box">
+            <div class="card-block">
+                <form [formGroup]="forma" (ngSubmit)="incidencia()" class="form-incidencia">
+
+                    <div class="form-group col">
+                        <label>Titulo</label>
+                        <input type="text" class="form-control" name="titulo" formControlName="titulo" placeholder="titulo">
+                    </div>
+                    <div class="form-group col">
+                        <label>Fecha</label>
+                        <input type="text" class="form-control" name="fecha" formControlName="fecha" placeholder="yy/mm/dd">
+                    </div>
+
+
+
+                    <div class="form-group col">
+                        <label>Descripcion</label>
+                        <input type="text" class="form-control" name="descripcion" formControlName="descripcion" placeholder="Descripcion">
+
+
+                    </div>
+                    <div class="form-group col">
+                        <label>Accion</label>
+                        <input type="text" class="form-control" name="accion" formControlName="accion" placeholder="Accion">
+                    </div>
+
+
+
+
+
+                    <div class="form-group  text-center">
+                        <button type="submit" class="btn btn-primary ">Guardar</button>
+                    </div>
+                </form>
+
+            </div>

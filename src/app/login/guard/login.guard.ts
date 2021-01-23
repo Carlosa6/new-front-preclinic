@@ -11,14 +11,10 @@ export class LoginGuard implements CanActivate {
 
   canActivate(): boolean {
 
-    console.log('guard');
      if(this.service.estaLogeado()){
-      console.log('asd');
        return true
      }
-     console.log('wweweasd');
        this.router.navigate(['/login']);
-       console.log('32434');
        return false
      
    

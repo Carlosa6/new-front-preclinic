@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceListUsersService} from './../lista-usuario/service-list-users.service'
 import { PerfilUsuarioService} from './service/perfil-usuario.service'
 import { LoginService} from './../../login/service/login.service'
 
 import { ActivatedRoute } from '@angular/router';
+import { ServiceListUsersService } from '../lista-usuario/service-list-users.service';
+
+import { IncidenciaService } from '../../incidencia/service/incidencia.service';
 @Component({
   selector: 'app-perfil-usuario',
   templateUrl: './perfil-usuario.component.html',
@@ -14,12 +16,22 @@ export class PerfilUsuarioComponent implements OnInit {
   informacion :any
   existeInformacion = false
   codigo : String
+  
   fichas : any
   rol
   existeFichaMedicas = false
   isAdmin =false
 
-  constructor( private service : ServiceListUsersService, private route: ActivatedRoute,private perfil : PerfilUsuarioService, private login : LoginService ) { }
+  /* Incidencias*/
+  incidencia : any
+  existeincidencia = false
+
+
+  constructor(private service : ServiceListUsersService, 
+              private route: ActivatedRoute,
+              private perfil : PerfilUsuarioService,
+              private login : LoginService, 
+              private incidenciaService :IncidenciaService ) { }
 
   ngOnInit(): void {
     if(this.login.getRol()=="ADMIN"){
@@ -28,6 +40,7 @@ export class PerfilUsuarioComponent implements OnInit {
       
     this.loadData()
     setTimeout( ()=>{this.loadFichaMedicas() }, 1000)
+    setTimeout( ()=>{this.loadIncidencias() }, 1000)
     
   }
 
@@ -50,8 +63,6 @@ export class PerfilUsuarioComponent implements OnInit {
     this.perfil.getFichaMedicas(this.codigo).subscribe(
       (data) => {
         this.fichas= data['usuario'].fichaMedica
-        //console.log(data)
-        //console.log(this.fichas)
       },
       error =>{
         console.log(error)
@@ -59,5 +70,20 @@ export class PerfilUsuarioComponent implements OnInit {
     )
     this.existeFichaMedicas=true
   }
+
+  loadIncidencias(){
+    this.incidenciaService.getAllIncidencia(this.codigo).subscribe(
+      (data) => {
+        this.incidencia= data['incidencias'].incidencia
+
+      },
+      error =>{
+        console.log(error)
+      }
+    )
+    this.existeincidencia=true
+  }
+
+  
 
 }

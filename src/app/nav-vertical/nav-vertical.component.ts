@@ -26,7 +26,8 @@ export class NavVerticalComponent implements OnInit {
     if(rol === "ADMIN"){
       this.IsAdmin = true
     }
-    if(rol === "USUARIO"){
+
+    else{
       this.IsUser = true
     }
 

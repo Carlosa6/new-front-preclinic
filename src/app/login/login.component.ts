@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           if( this.serviceLogin.getRol()=="ADMIN"){
             this.router.navigate(['../inicio'])
           }
-          if( this.serviceLogin.getRol()=="USUARIO"){
+          else{
             let dni = this.serviceLogin.getUserDni()
             this.router.navigate(['../perfil-usuario',dni]);;
           }

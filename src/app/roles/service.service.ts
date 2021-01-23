@@ -37,6 +37,12 @@ export class ServiceService {
    getDiscapacidades(){
     return this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/discapacidad',this.httpOptions)
    }
+   getxIdDiscapacidades(valor){
+    return this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/discapacidad/'+valor,this.httpOptions)
+   }
+   EditDiscapacidades(id,valor){
+    return this.httpCliente.put('https://nameless-plains-49486.herokuapp.com/api/discapacidad/'+id,{"_id":id,"name":valor},this.httpOptions)
+   }
    postDiscapacidad(valor){
     return this.httpCliente.post('https://nameless-plains-49486.herokuapp.com/api/discapacidad',{"name":valor},this.httpOptions)
    }

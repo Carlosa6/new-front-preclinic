@@ -1,4 +1,4 @@
-<div class="page-wrapper" *ngIf="existeInformacion && existeFichaMedicas">
+<div class="page-wrapper" *ngIf="existeInformacion && existeFichaMedicas && existeincidencia">
     <div class="content">
         <div class="row">
             <div class="col-sm-7 col-6">
@@ -27,8 +27,14 @@
                                         <h3 class="user-name m-t-0 mb-0">{{informacion.apellidos}}</h3>
                                         <small class="text-muted">DNI : {{informacion.dni}}</small>
                                         <div class="staff-id">Codigo : {{informacion.codigo}}</div>
-                                        <div class="staff-msg">
-                                            <a [routerLink]="['/ficha-medica',informacion.dni]" *ngIf="isAdmin" class="btn btn-primary">Agregar Ficha Medica</a>
+                                        <div class="row">
+                                            <div class="staff-msg form-group col">
+                                                <a [routerLink]="['/ficha-medica',informacion.dni]" *ngIf="isAdmin" class="btn btn-primary">+ Ficha Medica</a>
+                                            </div>
+
+                                            <div class="staff-msg form-group col">
+                                                <a [routerLink]="['/incidencia',informacion.dni]" class="btn btn-primary">+ Incidencia</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +68,7 @@
         <div class="profile-tabs">
             <ul class="nav nav-tabs nav-tabs-bottom">
                 <li class="nav-item"><a class="nav-link active" href="#reporte-cont" data-toggle="tab">Reportes Medicos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Contacto Emergencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Incidencias</a></li>
             </ul>
 
             <div class="tab-content">
@@ -83,6 +89,7 @@
                                                     <a [routerLink]="['/perfil-usuario',informacion.dni,ficha._id]" class="name">Reporte Medico</a>
                                                     <span class="time">{{ficha.anio}}</span>
                                                 </div>
+                                                
                                             </div>
                                         </li>
 
@@ -93,7 +100,26 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="bottom-tab2">
-                    Tab content 2
+                    <div class="card-box mb-0">
+                        <h3 class="card-title">Informes</h3>
+                        <div class="experience-box">
+                            <ul class="experience-list">
+                                <li *ngFor="let inc of incidencia">
+                                    <div class="experience-user">
+                                        <div class="before-circle"></div>
+                                    </div>
+
+                                    <div class="experience-content">
+                                        <div class="timeline-content">
+                                            <a [routerLink]="['/incidencia',informacion.dni,inc._id]" class="name">Incidencia</a>
+                                            <span class="time">{{inc.fecha | date:'short'}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

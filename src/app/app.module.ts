@@ -26,6 +26,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { IncidenciaComponent } from './incidencia/incidencia/incidencia.component';
+import { MostrarIncidenciaComponent } from './incidencia/mostrar-incidencia/mostrar-incidencia.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     PermisosComponent,
     DiscapacidadesComponent,
     PieChartComponent,
-    BarChartComponent
+    BarChartComponent,
+    IncidenciaComponent,
+    MostrarIncidenciaComponent
 
   ],
   imports: [

@@ -2,85 +2,87 @@
 
     <div class="container">
         <div class="form-group text-center ">
-            <h1>{{ titulo }}</h1>
+            <h2>{{ titulo }}</h2>
         </div>
-        <form [formGroup]="forma" (ngSubmit)="user()" class="form-user">
-            <div class="row">
-                <div class="form-group col">
-                    <label>Código</label>
-                    <input type="text" class="form-control" name="codigo" formControlName="codigo" placeholder="17200000" [class.is-invalid]="codigoNoValido" maxlength="8">
-                    <small *ngIf="codigoNoValido" class="text-danger">El codigo requiere 8 digitos</small>
-                </div>
-                <div class="form-group col">
-                    <label>DNI</label>
-                    <input type="text" class="form-control" name="dni" formControlName="dni" placeholder="75202020" [class.is-invalid]="dniNoValido" maxlength="8">
-                    <small *ngIf="dniNoValido" class="text-danger">El codigo requiere 8 digitos</small>
-                </div>
+        <div class="card-box">
+            <div class="card-block">
+                <form [formGroup]="forma" (ngSubmit)="user()" class="form-user">
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>Código</label>
+                            <input type="text" class="form-control" name="codigo" formControlName="codigo" placeholder="17200000" [class.is-invalid]="codigoNoValido" maxlength="8">
+                            <small *ngIf="codigoNoValido" class="text-danger">El codigo requiere 8 digitos</small>
+                        </div>
+                        <div class="form-group col">
+                            <label>DNI</label>
+                            <input type="text" class="form-control" name="dni" formControlName="dni" placeholder="75202020" [class.is-invalid]="dniNoValido" maxlength="8">
+                            <small *ngIf="dniNoValido" class="text-danger">El codigo requiere 8 digitos</small>
+                        </div>
 
-            </div>
-            <div class="row">
-                <div class="form-group col">
-                    <label>Nombres</label>
-                    <input type="text" class="form-control" name="nombres" formControlName="nombres" placeholder="Nombres" [class.is-invalid]="nombreNoValido">
-                    <small *ngIf="nombreNoValido" class="text-danger">Caracteres incorrectos</small>
-                </div>
-                <div class="form-group col">
-                    <label>Apellidos</label>
-                    <input type="text" class="form-control" name="apellidos" formControlName="apellidos" placeholder="Apellidos" [class.is-invalid]="apellidoNoValido">
-                    <small *ngIf="apellidoNoValido" class="text-danger">Caracteres incorrectos</small>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col ">
-                    <label>Email</label>
-                    <input type="text" class="form-control" name="email" formControlName="email" placeholder="usuario@unmsm.edu.pe" [class.is-invalid]="emailNoValido">
-                    <small *ngIf="emailNoValido" class="text-danger">Correo no válido </small>
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>Nombres</label>
+                            <input type="text" class="form-control" name="nombres" formControlName="nombres" placeholder="Nombres" [class.is-invalid]="nombreNoValido">
+                            <small *ngIf="nombreNoValido" class="text-danger">Caracteres incorrectos</small>
+                        </div>
+                        <div class="form-group col">
+                            <label>Apellidos</label>
+                            <input type="text" class="form-control" name="apellidos" formControlName="apellidos" placeholder="Apellidos" [class.is-invalid]="apellidoNoValido">
+                            <small *ngIf="apellidoNoValido" class="text-danger">Caracteres incorrectos</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col ">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email" formControlName="email" placeholder="usuario@unmsm.edu.pe" [class.is-invalid]="emailNoValido">
+                            <small *ngIf="emailNoValido" class="text-danger">Correo no válido </small>
+                        </div>
 
 
-                <div class="form-group col">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password" formControlName="password" [class.is-invalid]="passwordNoValido">
-                    <small *ngIf="passwordNoValido" class="text-danger">Campo obligatorio</small>
-                </div>
+                        <div class="form-group col">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" formControlName="password" [class.is-invalid]="passwordNoValido">
+                            <small *ngIf="passwordNoValido" class="text-danger">Campo obligatorio</small>
+                        </div>
 
-            </div>
-            <div class="row">
-                <div class="form-group col">
-                    <label>Teléfono</label>
-                    <input type="text" class="form-control" name="telefono" formControlName="telefono" placeholder="986541232" [class.is-invalid]="telefonoNoValido" maxlength="9">
-                    <small *ngIf="telefonoNoValido" class="text-danger">Minimo deben ser 7 digitos</small>
-                </div>
-                <div class="form-group col">
-                    <label>Dirección</label>
-                    <input type="text" class="form-control" name="direccion" formControlName="direccion" placeholder="Direccion" [class.is-invalid]="direccionNoValido">
-                    <small *ngIf="direccionNoValido" class="text-danger">Campo obligatorio</small>
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" name="telefono" formControlName="telefono" placeholder="986541232" [class.is-invalid]="telefonoNoValido" maxlength="9">
+                            <small *ngIf="telefonoNoValido" class="text-danger">Minimo deben ser 7 digitos</small>
+                        </div>
+                        <div class="form-group col">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" name="direccion" formControlName="direccion" placeholder="Direccion" [class.is-invalid]="direccionNoValido">
+                            <small *ngIf="direccionNoValido" class="text-danger">Campo obligatorio</small>
+                        </div>
 
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label>Sexo</label>
-                    <select class="custom-select" formControlName="sexo">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Sexo</label>
+                            <select class="custom-select" formControlName="sexo">
                     <option  value="MASCULINO" >Masculino</option>
                     <option  value="FEMENINO">Femenino</option>
                      </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Tipo de usuario</label>
-                    <select class="custom-select" formControlName="rol">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Tipo de usuario</label>
+                            <select class="custom-select" formControlName="rol">
                     <option *ngFor ="let tipo of roles" [value]=tipo.name>{{tipo.name}}</option>
                      </select>
-                </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group  text-center">
+                        <button class="btn btn-primary">Crear</button>
+                    </div>
+                </form>
 
             </div>
-            <div class="form-group  text-center">
-                <button class="btn btn-primary">Crear</button>
-            </div>
-        </form>
-
-    </div>
-    <!--
+            <!--
     <hr>
     <pre>
     Estado del formulario: {{ forma.valid }}
@@ -94,4 +96,4 @@
   
   </pre>-->
 
-</div>
+        </div>

@@ -94,10 +94,10 @@ export class BarChartComponent {
       this.barChartLabels[2] = 'ESSALUD'
       this.barChartLabels[3] = 'EPS'
       
-      this.barChartData[0].data[0] = res[2].segurosMedicos.UNMSM[0].seguro_UNMSM
-      this.barChartData[0].data[1] = res[2].segurosMedicos.MINSA[0].seguro_MINSA
-      this.barChartData[0].data[2] = res[2].segurosMedicos.ESSALUD[0].seguro_ESSALUD
-      this.barChartData[0].data[3] = res[2].segurosMedicos.EPS[0].seguro_EPS
+      this.barChartData[0].data[0] = res[3].segurosMedicos.UNMSM[0].seguro_UNMSM
+      this.barChartData[0].data[1] = res[3].segurosMedicos.MINSA[0].seguro_MINSA
+      this.barChartData[0].data[2] = res[3].segurosMedicos.ESSALUD[0].seguro_ESSALUD
+      this.barChartData[0].data[3] = res[3].segurosMedicos.EPS[0].seguro_EPS
 
     for(var i = 0; i < res[0].cantidadFichasxAnio.length; i++){ 
       
