@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import html2canvas from 'html2canvas';
+import { IgxExcelExporterOptions, IgxExcelExporterService } from 'igniteui-angular';
+import jspdf from 'jspdf';
 import { Label } from 'ng2-charts';
 import { JsonService } from './json.service';
 
@@ -10,6 +13,9 @@ import { JsonService } from './json.service';
 })
 
 export class BarChartComponent {
+
+  public miData : any;
+  public miData2 : any;
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -59,13 +65,13 @@ export class BarChartComponent {
     }
   };
   
-  public barChartLabels2: Label[] = ['','',''];
+  public barChartLabels2: Label[] = ['','','','',''];
   barChartType2: ChartType = 'bar';
   barChartLegend2 = true;
   barChartPlugins2 = [];
 
   public barChartData2: ChartDataSets[] = [
-    { data: [0,0,0,0], label: 'CANTIDAD FICHAS'}
+    { data: [0,0,0,0,0], label: 'CANTIDAD FICHAS'}
      
   ];
 
@@ -85,10 +91,12 @@ export class BarChartComponent {
     },
   ];
   
-  constructor(public json: JsonService) {
+  constructor(public json: JsonService, private excelExportService: IgxExcelExporterService) {
 
     this.json.getJson('https://nameless-plains-49486.herokuapp.com/api/charts').subscribe((res: any) => {
-    
+      
+      console.log(res)
+
       this.barChartLabels[0] = 'UNMSM'
       this.barChartLabels[1] = 'MINSA'
       this.barChartLabels[2] = 'ESSALUD'
@@ -98,17 +106,79 @@ export class BarChartComponent {
       this.barChartData[0].data[1] = res[3].segurosMedicos.MINSA[0].seguro_MINSA
       this.barChartData[0].data[2] = res[3].segurosMedicos.ESSALUD[0].seguro_ESSALUD
       this.barChartData[0].data[3] = res[3].segurosMedicos.EPS[0].seguro_EPS
-
+ 
     for(var i = 0; i < res[0].cantidadFichasxAnio.length; i++){ 
       
-      this.barChartLabels2[i] = (res[0].cantidadFichasxAnio[i]._id).toString()
+      this.barChartLabels2[i] = res[0].cantidadFichasxAnio[i]._id
       this.barChartData2[0].data[i] = res[0].cantidadFichasxAnio[i].count
     }
-       console.log((JSON.parse(res[1].cantidadTiposSangrexAnio[0].est))[0].count)
+
+    this.miData = [
+      { TipoSeguro: "UNMSM", CantidadUsuarios: this.barChartData[0].data[0] },
+      { TipoSeguro: "MINSA", CantidadUsuarios: this.barChartData[0].data[1] }, 
+      { TipoSeguro: "ESSALUD", CantidadUsuarios: this.barChartData[0].data[2] },
+      { TipoSeguro: "EPS", CantidadUsuarios: this.barChartData[0].data[3] }
+      ];
+
+    this.miData2 = [
+      { Año: "2020", CantidadFichas: res[0].cantidadFichasxAnio[0].count },
+      { Año: "2019", CantidadFichas: res[0].cantidadFichasxAnio[1].count }, 
+      { Año: "2018", CantidadFichas: res[0].cantidadFichasxAnio[2].count },
+      { Año: "2017", CantidadFichas: res[0].cantidadFichasxAnio[3].count },
+      { Año: "2016", CantidadFichas: res[0].cantidadFichasxAnio[4].count }
+    ];
+    console.log(this.miData)
     });  
-    
-    
-    
+  
   }
+
+  public captureScreen(){
+
+    var data = document.getElementById('micanvas1');
+    html2canvas(data).then(canvas => {
+    // Opciones de configuración de imagen
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+   
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jspdf('p', 'mm', 'a4'); // A4 tamaño del PDF
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save('TiposDeSeguro.pdf'); // Generar PDF
+      });
+    }
+    
+    public exportButtonHandler() {
+      
+        this.excelExportService.exportData(this.miData, new IgxExcelExporterOptions("TiposDeSeguro"));
+        this.captureScreen();
+    }
+
+    public captureScreen2(){
+
+      var data = document.getElementById('micanvas1');
+      html2canvas(data).then(canvas => {
+      // Opciones de configuración de imagen
+        var imgWidth = 208;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+     
+        const contentDataURL = canvas.toDataURL('image/png')
+        let pdf = new jspdf('p', 'mm', 'a4'); // A4 tamaño del PDF
+        var position = 0;
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        pdf.save('FichasPorAño.pdf'); // Generar PDF
+        });
+      }
+      
+      public exportButtonHandler2() {
+        
+          this.excelExportService.exportData(this.miData2, new IgxExcelExporterOptions("FichasPorAño"));
+          this.captureScreen2();
+      }
+
   ngOnInit() {}
 }
