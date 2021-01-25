@@ -9,7 +9,24 @@
       [legend]="pieChartLegend"
       [colors]="pieChartColors">
     </canvas>
+</div>
+
+<!-- <button type="button" id="miboton1" class= "btn btn-primary" (click)="exportButtonHandler()">Descargar Datos</button> -->
+<!-- <button type="button" id= "miboton2" class= "btn btn-primary" (click)="captureScreen()">Descargar Gráfica</button> -->
+<!-- <a href="#" (click)="downloadCanvas($event)"> DOWNLOAD THIS</a> -->
+
+<div id= "miboton2" class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Descargar
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" href="#" (click)="generarExcel()" >DATOS EXCEL</button>
+    <button class="dropdown-item" href="#" (click)="generarPDF()">GRÁFICA PDF</button>
+    <button class="dropdown-item" href="#" (click)="generarJPEG()" >GRÁFICA JPEG</button>
+    <button class="dropdown-item" href="#" (click)="generarPDF()" (click)="generarExcel()" (click)="generarJPEG()">TODO</button>
   </div>
+</div>
+ 
 
 
 <div id= "micanvas2" href="pie-chart.component.css" class="dash-widget"> 
@@ -25,6 +42,17 @@
     </canvas>
 </div>
 
-<div id= "micanvas3" href="pie-chart.component.css">
+<!-- <button type="button" id="miboton3" class= "btn btn-primary" (click)="exportButtonHandler2()">Descargar Datos</button> -->
+<!-- <button type="button" id= "miboton4" class= "btn btn-primary" (click)="captureScreen2()">Descargar Gráfica</button> -->
 
+<div id= "miboton4" class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Descargar
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <button class="dropdown-item" href="#" (click)="generarExcel2()" >DATOS EXCEL</button>
+    <button class="dropdown-item" href="#" (click)="generarPDF2()">GRÁFICA PDF</button>
+    <button class="dropdown-item" href="#" (click)="generarJPEG2()" >GRÁFICA JPEG</button>
+    <button class="dropdown-item" href="#" (click)="generarPDF2()" (click)="generarExcel2()" (click)="generarJPEG2()" >TODO</button>
+  </div>
 </div>
