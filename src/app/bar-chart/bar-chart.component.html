@@ -1,25 +1,30 @@
-  <div id= "micanvas1" href="bar-chart.component.css" class="dash-widget">
-    <h3>TIPOS DE SEGURO</h3>
-    <canvas baseChart
-      [datasets]="barChartData"
-      [labels]="barChartLabels"
-      [options]="barChartOptions"
-      [plugins]="barChartPlugins"
-      [legend]="barChartLegend"
-      [chartType]="barChartType"
-      [colors]="barChartColors">
-    </canvas>
-  </div>
+<div id= "micanvas1" href="bar-chart.component.css" class="dash-widget">
+  <h3>TIPOS DE SEGURO</h3>
+  <canvas baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+    [colors]="barChartColors">
+  </canvas>
+</div>
 
-  <div id= "micanvas2" href="bar-chart.component.css" class="dash-widget">
-    <h3>FICHAS MÉDICAS POR AÑO</h3>
-    <canvas baseChart
-      [datasets]="barChartData2"
-      [labels]="barChartLabels2"
-      [options]="barChartOptions2"
-      [plugins]="barChartPlugins2"
-      [legend]="barChartLegend2"
-      [chartType]="barChartType2"
-      [colors]="barChartColors2">
-    </canvas>
-  </div>
+<button type="button" id="miboton1" class= "btn btn-primary" (click)="exportButtonHandler()">Descargar</button>
+
+
+<div id= "micanvas2" href="bar-chart.component.css" class="dash-widget">
+  <h3>FICHAS MÉDICAS POR AÑO</h3>
+  <canvas baseChart
+    [datasets]="barChartData2"
+    [labels]="barChartLabels2"
+    [options]="barChartOptions2"
+    [plugins]="barChartPlugins2"
+    [legend]="barChartLegend2"
+    [chartType]="barChartType2"
+    [colors]="barChartColors2">
+  </canvas>
+</div>
+
+<button type="button" id="miboton2" class= "btn btn-primary" (click)="exportButtonHandler2()">Descargar</button>
