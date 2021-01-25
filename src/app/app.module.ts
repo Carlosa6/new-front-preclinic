@@ -28,6 +28,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { IncidenciaComponent } from './incidencia/incidencia/incidencia.component';
 import { MostrarIncidenciaComponent } from './incidencia/mostrar-incidencia/mostrar-incidencia.component';
+import { IgxExcelExporterService } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { MostrarIncidenciaComponent } from './incidencia/mostrar-incidencia/most
     ChartsModule
     
   ],
-  providers: [],
+  providers: [IgxExcelExporterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
