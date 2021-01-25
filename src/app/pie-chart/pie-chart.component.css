@@ -16,11 +16,37 @@
     left:260px;   
 }
 
-#micanvas3 {
-    display: inline; 
+#miboton1 {
+    display: inline;
     position: absolute;
-    width:500px; 
-    height:100px;
+    top:350px;
+    left:270px;  
+}
+
+#miboton2 {
+    display: inline;
+    position: absolute; 
+    top:350px;
+    left:635px;  
+}
+
+#miboton3 {
+    display: inline;
+    position: absolute; 
     top:700px;
-    left:260px;   
+    left:270px; 
+}
+
+#miboton4 {
+    display: inline;
+    position: absolute; 
+    top:700px;
+    left:635px;
+}
+
+#miboton5 {
+    display: inline;
+    position: absolute; 
+    top:700px;
+    left:610px;
 }
