@@ -22,13 +22,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PermisosComponent } from './permisos/permisos.component';
 import { DiscapacidadesComponent } from './discapacidades/discapacidades.component';
-import { PieChartComponent } from './pie-chart/pie-chart.component';
-
+import { PieChartComponent } from './pie-chart/pie-chart.component'; // <-- import the module
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
-import { IncidenciaComponent } from './incidencia/incidencia/incidencia.component';
-import { MostrarIncidenciaComponent } from './incidencia/mostrar-incidencia/mostrar-incidencia.component';
 import { IgxExcelExporterService } from 'igniteui-angular';
+import { MostrarIncidenciaComponent } from './incidencia/mostrar-incidencia/mostrar-incidencia.component';
+import { IncidenciaComponent } from './incidencia/incidencia/incidencia.component';
 
 @NgModule({
   declarations: [
@@ -50,8 +49,7 @@ import { IgxExcelExporterService } from 'igniteui-angular';
     PieChartComponent,
     BarChartComponent,
     IncidenciaComponent,
-    MostrarIncidenciaComponent
-
+    MostrarIncidenciaComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +58,7 @@ import { IgxExcelExporterService } from 'igniteui-angular';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    ChartsModule
-    
+    ChartsModule,  
   ],
   providers: [IgxExcelExporterService],
   bootstrap: [AppComponent]

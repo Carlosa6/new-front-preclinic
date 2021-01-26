@@ -48,7 +48,7 @@ export class IncidenciaComponent implements OnInit {
   
   }
 
-  incidencia(){
+  /*incidencia(){
     
     console.log(this.forma.value);
     this.serviceIncidencia.pushIncidencia(this.forma.value).subscribe(
@@ -56,7 +56,7 @@ export class IncidenciaComponent implements OnInit {
         console.log(data);
       })
 
-  }
+  }*/
 
 
   

@@ -49,7 +49,8 @@ export class PerfilUsuarioComponent implements OnInit {
     this.service.getUser(dni).subscribe(
       (data) =>{
         this.informacion = data['user']
-        console.log( this.informacion)
+       // console.log( this.informacion)
+        console.log(data);
         this.codigo = data['user'].codigo
       },
       (error) =>{

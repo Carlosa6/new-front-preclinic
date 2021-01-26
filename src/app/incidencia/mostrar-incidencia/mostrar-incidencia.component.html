@@ -1,7 +1,7 @@
 <div class="page-wrapper" *ngIf="existeIncidencia">
     <div class="container">
-        <a class="btn btn-primary float-right mt-4"  style="color: white;" (click) ="Redirigir()">Atras</a>
-      </div>
+        <a class="btn btn-primary float-right mt-4" style="color: white;" (click)="Redirigir()">Atras</a>
+    </div>
 
     <div class="container">
         <div class="form-group  ">
@@ -10,34 +10,33 @@
         <div class="card-box">
             <div class="card-block">
 
-                    <div class="form-group col">
-                        <label>Titulo</label>
-                        <input type="text" class="form-control" name="titulo" [value]=incidencia.titulo  disabled >
-                    </div>
-                    <div class="form-group col">
-                        <label>Fecha</label>
-                        <input type="text" class="form-control" name="fecha" [value]=incidencia.fecha  disabled >
-                    </div>
+                <div class="form-group col">
+                    <label>Titulo</label>
+                    <input type="text" class="form-control" name="titulo" [value]=incidencia.titulo disabled>
+                </div>
+                <div class="form-group col">
+                    <label>Fecha</label>
+                    <input type="date " class="form-control " [value]="incidencia.fecha | date:'dd/MM/yyyy'" disabled>
+                </div>
 
 
 
-                    <div class="form-group col">
-                        <label>Descripcion</label>
-                        <input type="text" class="form-control" name="descripcion" [value]=incidencia.descripcion  disabled>
+                <div class="form-group col">
+                    <label>Descripcion</label>
+                    <!--<input type="text" class="form-control" name="descripcion" [value]=incidencia.descripcion disabled>-->
+                    <textarea type="text" id="form7" name="descripcion" class="md-textarea md-textarea-auto form-control" mdbInput placeholder="Descripcion . . ." [value]=incidencia.descripcion disabled></textarea>
 
-                        <!--<textarea type="text" id="form7" name="descripcion" [(ngModel)]="descripcion" class="md-textarea md-textarea-auto form-control" mdbInput formControlName="descripcion" placeholder="Descripcion . . ."></textarea>
 
-                        -->
-                    </div>
-                    <div class="form-group col">
-                        <label>Accion</label>
-                        <input type="text" class="form-control" name="accion" [value]=incidencia.accion  disabled>
-                    </div>
-
+                </div>
+                <div class="form-group col">
+                    <label>Accion</label>
+                    <input type="text" class="form-control" name="accion" [value]=incidencia.accion disabled>
+                </div>
 
 
 
-                    <!-- 
+
+                <!-- 
                     <div class="form-group  text-center">
                         <button type="submit" class="btn btn-primary ">Guardar</button>
                     </div>

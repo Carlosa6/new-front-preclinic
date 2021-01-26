@@ -27,6 +27,12 @@ export class ServiceService {
    deleteRoles(valor){
     return this.httpCliente.delete('https://nameless-plains-49486.herokuapp.com/api/rol/'+valor,this.httpOptions)
    }
+   getxIdRol(valor){
+    return this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/rol/'+valor,this.httpOptions)
+   }
+   EditRol(id,valor,valor2){
+    return this.httpCliente.put('https://nameless-plains-49486.herokuapp.com/api/rol/'+id,{"_id":id,"name":valor,"description":valor2},this.httpOptions)
+   }
 
 
 

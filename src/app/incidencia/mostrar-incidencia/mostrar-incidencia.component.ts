@@ -10,6 +10,7 @@ import { IncidenciaService } from '../service/incidencia.service';
 export class MostrarIncidenciaComponent implements OnInit {
 
   incidencia
+  fecha
   existeIncidencia= false;
 
   constructor(private router:Router,private incidenciaService:IncidenciaService, private activate :ActivatedRoute) { 
@@ -26,8 +27,9 @@ export class MostrarIncidenciaComponent implements OnInit {
           (data) => {
             console.log(data['incidencia'].titulo)
             this.incidencia= data['incidencia']
+            
             this.existeIncidencia= true;
-
+            
           }
         )
       

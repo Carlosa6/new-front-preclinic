@@ -7,7 +7,7 @@
             </div>
 
             <div class="col-sm-5 col-6 text-right m-b-30">
-                <!--<a href="edit-profile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus" aria-disabled="false"></i> Edit Profile</a>-->
+                <a href="edit-profile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus" aria-disabled="false"></i> Edit Profile</a>
             </div>
         </div>
         <div class="card-box profile-header">
@@ -56,6 +56,10 @@
                                             <span class="title">Sexo:</span>
                                             <span class="text">{{informacion.sexo}}</span>
                                         </li>
+                                        <li>
+                                            <span class="title">Discapacidad:</span>
+                                            <span class="text">{{informacion.discapacidad.name }}</span>
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -89,7 +93,7 @@
                                                     <a [routerLink]="['/perfil-usuario',informacion.dni,ficha._id]" class="name">Reporte Medico</a>
                                                     <span class="time">{{ficha.anio}}</span>
                                                 </div>
-                                                
+
                                             </div>
                                         </li>
 

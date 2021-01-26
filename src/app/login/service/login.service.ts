@@ -88,6 +88,10 @@ export class LoginService {
       this.httpOptions
     );
   }
+
+  tipoDiscapacidad(){
+    return this.httpCliente.get('https://nameless-plains-49486.herokuapp.com/api/discapacidad',this.httpOptions)
+  }
   CheckMinsa(control: FormControl) {
     if (control.value) {
     }

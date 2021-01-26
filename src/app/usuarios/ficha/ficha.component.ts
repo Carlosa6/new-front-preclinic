@@ -57,9 +57,9 @@ export class FichaComponent implements OnInit {
 
 
   Redirigir(){
-    let ficha=this.route.snapshot.params['id'];
+    let dni=this.route.snapshot.params['dni'];
     
-    this.router.navigate(['../perfil-usuario',ficha])
+    this.router.navigate(['../perfil-usuario',dni])
   }
 
   Eliminar(){

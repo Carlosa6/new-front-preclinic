@@ -18,8 +18,11 @@ export class CrearUsuarioComponent implements OnInit {
   titulo = "Crear Usuario";
 
   forma: FormGroup;
+  nombre
+  disc: [];
   roles: [];
   existeRol=false
+  existeDiscapacidad = false
 
 
   constructor(private fb: FormBuilder,private service:LoginService, private serviceUser: CrearUsuarioService, private router: Router) {
@@ -28,6 +31,8 @@ export class CrearUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
    this.getRol()
+   this.getDiscapacidad()
+   this.codigoBD()
   }
 
   getRol(){
@@ -37,6 +42,22 @@ export class CrearUsuarioComponent implements OnInit {
       });
       this.existeRol = true
   }
+
+  getDiscapacidad(){
+    this.service.tipoDiscapacidad().subscribe
+    ( data => {
+      this.disc = data['discapacidades']
+      
+      
+    });
+    this.existeDiscapacidad = true
+  }
+  
+  codigoBD(){
+     if(this.forma.get('codigo').value>7)
+        console.log(this.forma.get('codigo'))
+}
+
   get codigoNoValido(){
       return this.forma.get('codigo').invalid && this.forma.get('codigo').touched;
   }
@@ -81,7 +102,7 @@ get telefonoNoValido(){
       telefono: ['', [Validators.required, Validators.minLength(7)]],
       sexo: ['' ],
       rol: [''],
-      
+      discapacidad: ['Ninguna'],
 
     }
 

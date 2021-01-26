@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 import { Json2Service } from './json2.service';
-import { IgxExcelExporterOptions, IgxExcelExporterService } from 'igniteui-angular';
+import { IColumnExportingEventArgs, IgxExcelExporterOptions, IgxExcelExporterService } from 'igniteui-angular';
 import html2canvas from 'html2canvas';
 import jspdf from 'jspdf';
 
